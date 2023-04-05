@@ -1,0 +1,33 @@
+package org.example;
+
+public class split {
+    public static void main(String[] args) {
+        String s1="java string split method by javapoints";
+        String[] word=s1.split("\\s");
+
+        for(String w:word) {
+            System.out.println(w);
+        }
+        System.out.println("After limit it");
+        for(String w:s1.split("\\s",1)){
+            System.out.println(w);
+        }
+        for(String w:s1.split("\\s",3)){
+            System.out.println(w);
+        }
+
+        System.out.println("Replace");
+        String replaceString=s1.replace('a','e');
+        System.out.println(replaceString);
+        String s2="My name is Khan. My name is Bob. My name is Sonoo";
+        String replaceString2=s2.replaceAll(" ","");
+        System.out.println(replaceString2);
+
+        //endswith()operator
+        System.out.println(s2.endsWith("Suvo"));
+        if(s2.endsWith(".com")) {
+            System.out.println("String ends with .com");
+        }else System.out.println("It does not end with .com");
+
+    }
+}
