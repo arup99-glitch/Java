@@ -1,0 +1,16 @@
+package org.example;
+public class wrapper {
+    public static void main(String[] args) {
+        byte[]bytes ={72,101,108,108,111,32,87,111,114,108,100};
+        String str = new String(bytes);
+        System.out.println(str);
+
+        StringBuilder sb = new StringBuilder();
+        for(byte b : bytes){
+            sb.append(Byte.toString(b)).append(" ");
+        }
+
+        String byteStr = sb.toString().trim();
+        System.out.println(byteStr);
+    }
+}
