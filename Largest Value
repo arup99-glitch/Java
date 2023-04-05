@@ -1,0 +1,21 @@
+package org.example;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class LargestValue {
+    public static void main(String[] args) {
+      List<Integer> numbers = new ArrayList<>();
+      numbers.add(2);
+      numbers.add(6);
+      numbers.add(5);
+
+      Integer max=0;
+      for(Integer num : numbers){
+          if(max<num){
+              max=num;
+          }
+      }
+      System.out.println("The Largest Number is :" + max);
+    }
+}
