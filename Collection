@@ -1,0 +1,30 @@
+package org.example;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class Collection {
+    public static void main(String[] args) {
+        List<String> cars = new ArrayList<String>();
+        cars.add("Volvo");
+        cars.add("BMW");
+        cars.add("Ford");
+        cars.add("Mazda");
+        System.out.println(cars);
+        Collections.sort(cars);
+        for(String i: cars){
+            System.out.println(i);
+        }
+        int size = cars.size();
+        System.out.println(size);
+        int index = cars.indexOf("Ford");
+        System.out.println(index);
+        boolean result=cars.isEmpty();
+        if(cars.size()==0){
+            System.out.println("The array is empty");
+        }
+
+
+    }
+}
