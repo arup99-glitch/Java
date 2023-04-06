@@ -1,0 +1,82 @@
+package org.example;
+
+import java.util.*;
+
+public class Task6 {
+    public static void main(String[] args) {
+
+        try {
+            int[] myNumbers = {100, 20, 35, 36, 37};
+            System.out.println(myNumbers[10]);
+        } catch (Exception e) {
+            System.out.println("Something went wrong.");
+        } finally {
+            System.out.println("The 'try catch' is finished.");
+        }
+
+
+        //******for array list*******
+        List<String> books = new ArrayList<String>();
+        books.add("Java");
+        books.add("Python");
+        books.add("C");
+        books.add("C++");
+        System.out.println("FOR ARRAY LIST");
+
+        System.out.println(books);
+        Collections.sort(books);
+        for (String i : books) {
+            System.out.println(i);
+        }
+        int size = books.size();
+        System.out.println(size);
+        int index = books.indexOf("Ford");
+        System.out.println(index);
+        boolean result = books.isEmpty();
+        if (books.size() == 0) {
+            System.out.println("The array is empty");
+        }
+        List<String> books1 = books;
+        System.out.println("After copy all alements:");
+        for (String value : books1) {
+            System.out.println(value);
+        }
+
+
+        books1.set(0, "Javascript");
+        System.out.println(books1);
+        books1.clear();
+        System.out.println(books1);
+
+        //*****hash map******
+        Map<Integer, String> newmap = new HashMap<>();
+        newmap.put(1, "Apple");
+        newmap.put(2, "Banana");
+        newmap.put(3, "orange");
+        newmap.put(4, "Watermelon");
+        newmap.put(5, "Mango");
+
+        String fruits = newmap.get(2);
+        System.out.println("The fruits of the 2 is " + fruits);
+
+        System.out.println("The keys in the map are : ");
+        for (Integer key : newmap.keySet()) {
+            System.out.println(key);
+        }
+
+        System.out.println("The values in the map are: ");
+        for (Integer key : newmap.keySet()) {
+            System.out.println(newmap.get(key));
+        }
+
+        newmap.remove(2);
+
+        boolean containskey = newmap.containsKey(2);
+        System.out.println("Does the map contain a 2? " + containskey);
+
+        boolean containsValue = newmap.containsValue("orange");
+        System.out.println("Does the map contain the color orange? " + containsValue);
+
+
+    }
+}
