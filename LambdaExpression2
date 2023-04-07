@@ -1,0 +1,67 @@
+package org.example;
+
+import java.util.*;
+import java.util.stream.Stream;
+
+@FunctionalInterface
+interface Modulas {
+    int calculate(int x, int y);
+}
+
+
+public class LambdaExpression {
+    public static void main(String[] args) {
+
+        //FunctionalInterface
+        int a = 5;
+        int b = 2;
+
+        // lambda expression to define the calculate method
+        Modulas s = (int x, int y) -> x % y;
+
+        // parameter passed and return type must be
+        // same as defined in the prototype
+        int ans = s.calculate(a, b);
+        System.out.println("The reamaining value is : " + ans);
+
+        //Lambda expression
+        ArrayList<Integer> numbers = new ArrayList<Integer>();
+        numbers.add(5);
+        numbers.add(9);
+        numbers.add(8);
+        numbers.add(1);
+        System.out.println("Lambda Expression : ");
+        numbers.forEach((n) -> {
+            System.out.println(n);
+        });
+
+        //Stream
+        {
+            List<Integer> list = new ArrayList<Integer>();
+
+            for(int i = 1; i< 10; i++){
+                list.add(i);
+            }
+
+            System.out.println("After stream : ");
+            Stream<Integer> stream = list.stream();
+            stream.forEach(p -> System.out.println(p));
+
+            // String array
+            String[] array = { "Arup", "chakra", "borty" };
+
+
+            Optional<String> String_combine = Arrays.stream(array)
+                    .reduce((str1, str2)
+                            -> str1 + "-" + str2);
+
+            // Displaying the combined String
+            if (String_combine.isPresent()) {
+                System.out.println(String_combine.get());
+            }
+
+        }
+
+
+    }
+}
