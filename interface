@@ -1,0 +1,62 @@
+package OOP;
+
+interface FirstInterface {
+    public  void myMethod();// interface method (does not have a body)
+}
+
+interface SecondInterface {
+    public void myOtherMethod();// interface method (does not have a body)
+}
+
+interface ThirdInterface{
+    public void myAnotherMethod();//interface method
+}
+
+//DemoClass implements FirstInterface and SecondInterface
+class DemoClass implements FirstInterface, SecondInterface,ThirdInterface{
+    @Override
+    public void myMethod() {
+        System.out.println("Some text...");
+    }
+
+    @Override
+    public void myOtherMethod() {
+        System.out.println("Some other text...");
+    }
+    @Override
+    public void myAnotherMethod() {
+        System.out.println("Please some other text... ");
+    }
+}
+
+//child democlass1
+class DemoClass1 extends DemoClass {
+
+}
+//child democlass2
+class DemoClass2 extends DemoClass implements SecondInterface,ThirdInterface{
+
+}
+
+public class Interface {
+    public static void main(String[] args) {
+
+        //for child class1
+        DemoClass1 myobj1= new DemoClass1();
+        System.out.println("For ChildClass1 :");
+        myobj1.myMethod();
+        myobj1.myOtherMethod();
+
+        //for child class2
+        DemoClass2 myobj2=new DemoClass2();
+        System.out.println("For ChildClass1 :");
+        myobj2.myMethod();
+        myobj2.myOtherMethod();
+        myobj2.myAnotherMethod();
+
+
+
+    }
+
+
+}
