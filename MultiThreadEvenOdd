@@ -1,0 +1,87 @@
+package org.example;
+
+import java.util.ArrayList;
+import java.util.List;
+
+class Odd implements Runnable{
+    private List<Integer> buffer;
+    private int maxSize;
+
+    public Odd(List<Integer> buffer, int maxSize)
+    {
+        this.buffer = buffer;
+        this.maxSize = maxSize;
+    }
+
+    public void run(){
+        for(int i=1;i<=10;i++){
+            synchronized (buffer) {
+                if (i % 2 != 0) {
+                    while (buffer.size() == maxSize) {
+                        try {
+
+                            buffer.wait();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    buffer.add(i);
+
+                    System.out.println("Odd Thread : " + i);
+
+                    buffer.notifyAll();
+                }
+
+            }
+        }
+    }
+}
+
+class Even implements Runnable{
+    private List<Integer>buffer;
+
+
+    public Even(List<Integer>buffer){
+        this.buffer = buffer;
+
+    }
+    public void run()
+    {
+        for(int i=1;i<=10;i++){
+        while(true) {
+            synchronized (buffer) {
+                while (buffer.isEmpty()) {
+                    try {
+                        buffer.wait();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                int value= buffer.remove(0)+1;
+
+                    System.out.println("Even Thread " + value);
+
+                    buffer.notifyAll();
+
+            }
+        }
+        }
+    }
+}
+
+public class MultiThreading {
+    public static void main(String[] args) {
+        List<Integer>buffer = new ArrayList<>();
+        int maxSize = 1;
+
+        Odd Odd = new Odd(buffer,maxSize);
+        Even Even = new Even(buffer);
+
+        Thread oddThread = new Thread(Odd);
+        Thread evenThread = new Thread(Even);
+
+        oddThread.start();
+        evenThread.start();
+
+    }
+}
