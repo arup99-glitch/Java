@@ -1,0 +1,64 @@
+package OOP;
+
+class Grandparent {
+    public void Print()
+    {
+        System.out.println("Grandparents Print()");
+    }
+}
+
+class Parent extends Grandparent{
+    @Override
+    public void Print() {
+        super.Print();
+        System.out.println("Parent Print()");
+    }
+}
+
+class Child extends Parent{
+    @Override
+    public void Print() {
+        super.Print();
+        System.out.println("Childs Print()");
+    }
+}
+
+//for multiple inheritance
+interface one{
+    public void print_geek();
+}
+
+interface two{
+    public void print_for();
+}
+
+interface three extends one,two {
+    public void print_geek();
+}
+
+class child1 implements three{
+    @Override
+    public void print_geek() {
+        System.out.println("Geeks");
+
+    }
+
+    @Override
+    public void print_for() {
+        System.out.println("for");
+    }
+}
+
+public class Inheritance2 {
+    public static void main(String[] args) {
+        Child c=new Child();
+        c.Print();
+
+        child1 c1 = new child1();
+        c1.print_geek();
+        c1.print_for();
+        c1.print_geek();
+
+
+    }
+}
