@@ -1,0 +1,40 @@
+class Rectangle {
+    public int width;
+    public int height;
+}
+class Square {
+    public int size;
+}
+ class Calculator {
+    public int GetArea(Rectangle rec) {
+        int area = rec.width * rec.height;
+        return area;
+    }
+}
+
+class CalculatorAdapter {
+
+    public int GetArea(Square square){
+        Calculator calculator = new Calculator();
+        Rectangle rectangle = new Rectangle();
+        rectangle.width = square.size;
+        rectangle.height = square.size;
+        int area = calculator.GetArea(rectangle);
+        return area;
+    }
+}
+public class test {
+
+    public static void main(String[] args) {
+
+            Square square = new Square();
+            square.size = 10;
+            //Use Adapter to calculate the area
+            CalculatorAdapter adapter = new CalculatorAdapter();
+            int area = adapter.GetArea(square);
+            System.out.println("Area = "+area);
+
+
+
+    }
+}
