@@ -1,26 +1,10 @@
-package com.example.demo.Tast27;
+package com.example.demo.Task2;
 
 public class Main {
     public static void main(String[] args) {
-        ElectricalEquipment fan = new FAn();
-        ElectricalEquipment light = new Light();
-
-        Switch fancySwitch = new FancySwitch();
-        Switch normalSwitch = new NormalSwitch();
-
-        fancySwitch.setEquipment(fan);
-
-        fancySwitch.on();
-        fancySwitch.off();
-
-        fancySwitch.setEquipment(light);
-
-        fancySwitch.on();
-        fancySwitch.off();
-
-        normalSwitch.setEquipment(light);
-        normalSwitch.on();
-        normalSwitch.off();
-
+        Vehicle vehicle1 = new Car(new Produce(), new Assemble());
+        vehicle1.manufacture();
+        Vehicle vehicle2 = new Bike(new Produce(), new Assemble());
+        vehicle2.manufacture();
     }
 }
