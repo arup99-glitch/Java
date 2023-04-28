@@ -1,25 +1,18 @@
-package org.example;
+package org.example.Task2;
 
-public class Waiter {
-    private PizzaBuilder pizzaBuilder;
+class Waiter {
+    private CoffeeBuilder coffeeBuilder;
 
-    public void setPizzaBuilder(PizzaBuilder _pizzaBuilder) {
-        pizzaBuilder = _pizzaBuilder;
+    public void setCoffeeBuilder(CoffeeBuilder cb){
+        coffeeBuilder =cb;
     }
-
-    public Pizza getPizza() {
-        return pizzaBuilder.getPizza();
+    public Coffee getCoffee(){
+        return coffeeBuilder.getCoffee();
     }
-
-    public void constructPizza(){
-
-        pizzaBuilder.createNewPizzaProduct();
-
-        pizzaBuilder.buildDough();
-
-        pizzaBuilder.buildSauce();
-
-        pizzaBuilder.buildTopping();
-
+    public void buildCoffee(){
+        coffeeBuilder.createNewCoffeeProduct();
+        coffeeBuilder.builDespressoProportion();
+        coffeeBuilder.buildSteamedmilkProportion();
+        coffeeBuilder.buildFoamProportion();
     }
 }

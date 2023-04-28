@@ -1,22 +1,22 @@
-package org.example;
-
+package org.example.Task2;
 
 public class Main {
     public static void main(String[] args) {
-
         Waiter waiter = new Waiter();
+        CoffeeBuilder cappuccinoCoffeeBuilder = new CappuccinoCoffeeBuilder();
+        CoffeeBuilder latteCoffeeBuilder = new LatteCoffeeBuilder();
 
-        PizzaBuilder hawaiianPizzaBuilder = new HawaiianPizzaBuilder();
-        PizzaBuilder spicyPizzaBuilder = new SpicyPizzaBuilder();
+        System.out.print("Cappuccino Coffee: ");
+        waiter.setCoffeeBuilder(cappuccinoCoffeeBuilder);
+        waiter.buildCoffee();
+        Coffee coffee = waiter.getCoffee();
+        System.out.println(coffee.toString());
 
-        waiter.setPizzaBuilder(hawaiianPizzaBuilder);
-        waiter.constructPizza();
-        Pizza pizza1 = waiter.getPizza();
-        System.out.println(pizza1.toString());
+        System.out.print("Latte Coffee: ");
+        waiter.setCoffeeBuilder(latteCoffeeBuilder);
+        waiter.buildCoffee();
+        Coffee coffee2 = waiter.getCoffee();
+        System.out.println(coffee2.toString());
 
-        waiter.setPizzaBuilder(spicyPizzaBuilder);
-        waiter.constructPizza();
-        Pizza pizza2 = waiter.getPizza();
-        System.out.println(pizza2.toString());
     }
 }
