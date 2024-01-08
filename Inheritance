@@ -1,0 +1,40 @@
+class Bicyle{
+    public int gear;
+    public int speed;
+    
+    public Bicycle(int gear,int speed){
+        this.gear = gear;
+        this.speed = speed;
+    }
+    public void applyBrake(int decrement){
+        speed -= decrement;
+    }
+    public void speedUp(int increment){
+        speed += incrementp;
+    }
+    public String toString()
+    {
+        return("No of gear are"+ gear +"\n" + "speed of bicycle is " + speed);
+    }
+    
+}
+class MountainByke extends Bicycle{
+    public int setHeight;
+    public MountainBike(int gear,int speed,int startHeight){
+        super(gear,speed);
+        setHeight = startHeight;
+    }
+    public void setHeight(int newValue){
+        seatHight = newValue;
+    }
+    @Override public String toString(){
+        return (super.toString() + "\n set height is "+ setHeight);
+    }
+}
+ public class Test {
+     public static void main(String args[])
+     {
+         MountainBike mb = new MountainBike(3,100,25);
+         system.out.println(mb.toString());
+     }
+ }
